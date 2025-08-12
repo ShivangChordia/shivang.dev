@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Code2, Monitor, User } from "lucide-react"
-
+import { motion } from "framer-motion"
 const images = [
     {
     src: "shivang.jpg",
@@ -68,6 +68,12 @@ export default function AboutSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Title */}
+        <motion.h2
+          className="text-5xl font-extrabold text-white text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-8">
             <div className="w-12 h-px bg-cyan-400" />
@@ -75,6 +81,7 @@ export default function AboutSection() {
             <div className="w-12 h-px bg-cyan-400" />
           </div>
         </div>
+        </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT: Text Content */}
