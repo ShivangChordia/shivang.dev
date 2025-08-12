@@ -3,8 +3,16 @@ import { useEffect, useState } from 'react'
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isClicking, setIsClicking] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
+    // Check if touch events are supported
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
+
+  useEffect(() => {
+    if (isTouchDevice) return // Don't set event listeners if touch device
+
     const updatePosition = (e) => {
       setPosition({ x: e.clientX, y: e.clientY })
     }
@@ -21,7 +29,12 @@ export default function CustomCursor() {
       document.removeEventListener('mousedown', handleClickDown)
       document.removeEventListener('mouseup', handleClickUp)
     }
-  }, [])
+  }, [isTouchDevice])
+
+  if (isTouchDevice) {
+    // Return nothing on touch devices (or you could return null)
+    return null
+  }
 
   return (
     <>
