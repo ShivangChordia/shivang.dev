@@ -24,8 +24,8 @@ const projects = [
     category: ["Web Development"],
     image: "/portfolio.png",
     tags: ["React", "Tailwind", "Framer Motion", "AI chatbot"],
-    githubUrl: "https://github.com/username/ai-lab-granada",
-    liveUrl: "https://ailab-granada.com",
+    githubUrl: "https://github.com/ShivangChordia/shivang.dev",
+    liveUrl: "https://chordiashivang.com/",
   },
   {
     id: "waste-to-wealth-ai",
